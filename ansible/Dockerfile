@@ -1,6 +1,7 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.1.2"
+ENV HELM_VERSION="v3.1.2" \
+    KUBE_VERSION="v1.18.0"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
@@ -10,7 +11,7 @@ RUN apt-get update -q \
     # add kubectl
     && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
     && apt-add-repository --yes --update "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
-    && apt-get install -y kubectl \
+    && apt-get install -y kubectl=$KUBE_VERSION-00 \
     # add iso/cloud image utils
     && apt-get install -y --no-install-recommends genisoimage cloud-image-utils \
     # helm
