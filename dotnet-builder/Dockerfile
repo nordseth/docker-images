@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 RUN mkdir /app
 WORKDIR /app
 
-ENV HELM_VERSION="v3.1.2" \
-    KUBE_VERSION="v1.18.1" \
+ENV HELM_VERSION="v3.2.0" \
+    KUBE_VERSION="v1.18.2" \
     NIBBLER_VERSION="1.1.0-beta.1" \
     PATH="${PATH}:/root/.dotnet/tools"
 
