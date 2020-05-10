@@ -3,9 +3,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 RUN mkdir /app
 WORKDIR /app
 
-ENV HELM_VERSION="v3.1.2" \
-    KUBE_VERSION="v1.17.4" \
-    NIBBLER_VERSION="1.1.0-beta.1" \
+ENV HELM_VERSION="v3.2.1" \
+    KUBE_VERSION="v1.18.2" \
+    NIBBLER_VERSION="1.1.0-beta.2" \
     PATH="${PATH}:/root/.dotnet/tools"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
