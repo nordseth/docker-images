@@ -4,7 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 
 ENV HELM_VERSION="v3.2.1" \
-    KUBE_VERSION="v1.18.2" \
+    KUBE_VERSION="v1.18.3" \
     NIBBLER_VERSION="1.1.0-beta.2" \
     PATH="${PATH}:/root/.dotnet/tools"
 
