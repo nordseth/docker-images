@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 RUN mkdir /app
 WORKDIR /app
 
-ENV HELM_VERSION="v3.2.2" \
+ENV HELM_VERSION="v3.2.4" \
     KUBE_VERSION="v1.18.3" \
     NIBBLER_VERSION="1.2.0" \
     PATH="${PATH}:/root/.dotnet/tools"
