@@ -1,6 +1,6 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.3.0" \
+ENV HELM_VERSION="v3.3.1" \
     KUBE_VERSION="1.19.0"
 
 RUN apt-get update -q \
