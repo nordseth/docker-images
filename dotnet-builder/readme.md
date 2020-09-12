@@ -7,3 +7,4 @@ Based on [mcr.microsoft.com/dotnet/core/sdk:3.1](https://hub.docker.com/_/micros
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/kubectl/)
 - [helm](https://helm.sh/docs/)
 - [Nibbler](https://www.nuget.org/packages/Nibbler/)
+- [minver-cli](https://www.nuget.org/packages/minver-cli/)
