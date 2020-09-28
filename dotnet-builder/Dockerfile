@@ -1,18 +1,29 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0
 
-RUN mkdir /app
-WORKDIR /app
+ENV HOME=/opt/app-root \
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/app-root/bin:/opt/app-root/.dotnet/tools \
+    DOTNET_SRC_PATH=/opt/app-root/src \
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
 ENV HELM_VERSION="v3.3.4" \
     KUBE_VERSION="v1.19.2" \
     NIBBLER_VERSION="1.6.0" \
-    MINVERCLI_VERSION="2.3.0" \
-    PATH="${PATH}:/root/.dotnet/tools"
+    MINVERCLI_VERSION="2.3.0" 
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
-    && chmod +x /usr/local/bin/helm \
-    && helm repo add stable https://kubernetes-charts.storage.googleapis.com/ \
+    && chmod +x /usr/local/bin/helm 
+
+RUN mkdir -p ${DOTNET_SRC_PATH} && \
+    useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin \
+      -c "Default Application User" default
+RUN chown -R 1001:0 /opt/app-root 
+
+WORKDIR ${DOTNET_SRC_PATH}
+
+USER 1001
+
+RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/ \
     && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
     && dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION}
