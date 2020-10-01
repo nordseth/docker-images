@@ -16,13 +16,13 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VER
     && chmod +x /usr/local/bin/helm 
 
 RUN mkdir -p ${DOTNET_SRC_PATH} && \
-    useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin \
+    useradd -u 1000 -r -g 0 -d ${HOME} -s /sbin/nologin \
       -c "Default Application User" default
-RUN chown -R 1001:0 /opt/app-root 
+RUN chown -R 1000:0 /opt/app-root 
 
 WORKDIR ${DOTNET_SRC_PATH}
 
-USER 1001
+USER 1000
 
 RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/ \
     && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \

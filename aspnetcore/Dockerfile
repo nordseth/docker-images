@@ -6,10 +6,10 @@ ENV HOME=/opt/app-root \
     ASPNETCORE_URLS=http://*:8080
 
 RUN mkdir -p ${DOTNET_APP_PATH} && \
-    useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin \
+    useradd -u 1000 -r -g 0 -d ${HOME} -s /sbin/nologin \
       -c "Default Application User" default
-RUN chown -R 1001:0 /opt/app-root 
+RUN chown -R 1000:0 /opt/app-root 
 
 WORKDIR ${DOTNET_APP_PATH}
 
-USER 1001
+USER 1000
