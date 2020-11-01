@@ -24,6 +24,6 @@ WORKDIR ${DOTNET_SRC_PATH}
 
 USER 1000
 
-RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/ \
+RUN helm repo add stable https://charts.helm.sh/stable \
     && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
     && dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION}
