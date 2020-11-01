@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 RUN mkdir /app
 WORKDIR /app
 
-ENV HELM_VERSION="v3.3.4" \
+ENV HELM_VERSION="v3.4.0" \
     KUBE_VERSION="v1.19.3" \
     NIBBLER_VERSION="1.6.0" \
     MINVERCLI_VERSION="2.3.1" \
