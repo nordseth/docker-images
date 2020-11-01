@@ -13,6 +13,6 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VER
     && chmod +x /usr/local/bin/kubectl \
     && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
-    && helm repo add stable https://kubernetes-charts.storage.googleapis.com/ \
+    && helm repo add stable https://charts.helm.sh/stable \
     && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
     && dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION}
