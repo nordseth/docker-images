@@ -5,8 +5,8 @@ ENV HOME=/opt/app-root \
     DOTNET_SRC_PATH=/opt/app-root/src \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
-ENV HELM_VERSION="v3.4.2" \
-    KUBE_VERSION="v1.19.6" \
+ENV HELM_VERSION="v3.5.0" \
+    KUBE_VERSION="v1.20.2" \
     NIBBLER_VERSION="1.6.1" \
     MINVERCLI_VERSION="2.3.1" 
 
