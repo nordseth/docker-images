@@ -1,6 +1,6 @@
 library 'dotnet@buildkit'
 
 pipelineDockerImage {
-    folder "/dotnet-builder"
+    folder "dotnet-builder"
     toImage "docker.io/nordseth/dotnet-builder:latest"
 }

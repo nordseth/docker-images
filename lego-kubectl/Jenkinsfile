@@ -1,6 +1,6 @@
 library 'dotnet@buildkit'
 
 pipelineDockerImage {
-    folder "/lego-kubectl"
+    folder "lego-kubectl"
     toImage "docker.io/nordseth/lego-kubectl:latest"
 }
