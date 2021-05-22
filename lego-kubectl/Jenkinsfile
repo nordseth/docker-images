@@ -1,4 +1,4 @@
-library 'dotnet@buildkit'
+library 'dotnet'
 
 pipelineDockerImage {
     folder "lego-kubectl"
