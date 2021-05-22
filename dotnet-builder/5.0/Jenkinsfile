@@ -1,0 +1,6 @@
+library 'dotnet@buildkit'
+
+pipelineDockerImage {
+    folder "dotnet-builder/5.0"
+    toImage "docker.io/nordseth/dotnet-builder:5.0"
+}
