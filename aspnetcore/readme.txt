@@ -14,3 +14,7 @@ https://github.com/dotnet/dotnet-docker/blob/master/src/sdk/5.0/buster-slim/amd6
 
 install on linux
 https://docs.microsoft.com/en-us/dotnet/core/install/linux
+
+
+Blog post
+https://techcommunity.microsoft.com/t5/azure-developer-community-blog/hardening-an-asp-net-container-running-on-kubernetes/ba-p/2542224
