@@ -1,0 +1,6 @@
+library 'dotnet'
+
+pipelineDockerImage {
+    folder "dotnet-builder/6.0"
+    toImage "docker.io/nordseth/dotnet-builder:6.0"
+}

@@ -1,6 +1,6 @@
 library 'dotnet'
 
 pipelineDockerImage {
-    folder "aspnetcore"
+    folder "aspnetcore/5.0"
     toImage "docker.io/nordseth/aspnetcore:5.0"
 }
