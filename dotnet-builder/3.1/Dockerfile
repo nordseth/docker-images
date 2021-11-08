@@ -5,7 +5,7 @@ WORKDIR /app
 
 ENV HELM_VERSION="v3.7.1" \
     KUBE_VERSION="v1.22.3" \
-    NIBBLER_VERSION="1.8.0-beta.1" \
+    NIBBLER_VERSION="1.8.0-beta.5" \
     MINVERCLI_VERSION="2.5.0" \
     PATH="${PATH}:/root/.dotnet/tools"
 

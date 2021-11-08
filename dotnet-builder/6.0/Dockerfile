@@ -7,7 +7,7 @@ ENV HOME=/opt/app-root \
 
 ENV HELM_VERSION="v3.7.1" \
     KUBE_VERSION="v1.22.3" \
-    NIBBLER_VERSION="1.8.0-beta.1" \
+    NIBBLER_VERSION="1.8.0-beta.5" \
     MINVERCLI_VERSION="2.5.0" 
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
