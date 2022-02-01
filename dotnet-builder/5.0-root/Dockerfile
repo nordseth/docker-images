@@ -3,9 +3,9 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 RUN mkdir /app
 WORKDIR /app
 
-ENV HELM_VERSION="v3.7.2" \
-    KUBE_VERSION="v1.23.1" \
-    NIBBLER_VERSION="1.8.0" \
+ENV HELM_VERSION="v3.8.0" \
+    KUBE_VERSION="v1.23.3" \
+    NIBBLER_VERSION="1.8.1" \
     MINVERCLI_VERSION="2.5.0" \
     PATH="${PATH}:/root/.dotnet/tools"
 
