@@ -1,8 +1,8 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.8.1" \
-    KUBE_VERSION="1.23.5" \
-    BUILDCTL_VERSION="v0.10.0"
+ENV HELM_VERSION="v3.8.2" \
+    KUBE_VERSION="1.24.0" \
+    BUILDCTL_VERSION="v0.10.3"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
