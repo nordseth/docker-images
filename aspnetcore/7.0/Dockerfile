@@ -5,10 +5,9 @@ ENV HOME=/opt/app-root \
     DOTNET_APP_PATH=/opt/app-root/app \
     ASPNETCORE_URLS=http://*:8080
 
-RUN mkdir -p ${DOTNET_APP_PATH} && \
-    groupadd --system --gid 101 app && \
+RUN groupadd --system --gid 101 app && \
     adduser --uid 101 -gid 101 --shell /bin/false --home ${HOME} --system app && \
-    chown -R 101:101 /opt/app-root 
+    mkdir ${DOTNET_APP_PATH} 
 
 WORKDIR ${DOTNET_APP_PATH}
 

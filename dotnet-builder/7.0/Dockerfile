@@ -15,10 +15,9 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VER
     && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm 
 
-RUN mkdir -p ${DOTNET_SRC_PATH} && \
-    groupadd --system --gid 101 app && \
+RUN groupadd --system --gid 101 app && \
     adduser --uid 101 -gid 101 --shell /bin/false --home ${HOME} --system app && \
-    chown -R 101:101 /opt/app-root 
+    mkdir  ${DOTNET_SRC_PATH} 
 
 WORKDIR ${DOTNET_SRC_PATH}
 
