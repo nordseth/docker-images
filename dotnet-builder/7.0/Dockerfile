@@ -15,14 +15,14 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VER
     && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm 
 
-RUN groupadd --system --gid 101 app && \
-    adduser --uid 101 -gid 101 --shell /bin/false --home ${HOME} --system app && \
+RUN groupadd --system --gid 1000 app && \
+    adduser --uid 1000 -gid 1000 --shell /bin/false --home ${HOME} --system app && \
     mkdir ${DOTNET_SRC_PATH} && \
-    chown 101:101 ${DOTNET_SRC_PATH}
+    chown 1000:1000 ${DOTNET_SRC_PATH}
 
 WORKDIR ${DOTNET_SRC_PATH}
 
-USER 101
+USER 1000
 
 RUN helm repo add stable https://charts.helm.sh/stable \
     && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
