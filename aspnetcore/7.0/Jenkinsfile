@@ -1,0 +1,6 @@
+library 'dotnet'
+
+pipelineDockerImage {
+    folder "aspnetcore/7.0"
+    toImage "docker.io/nordseth/aspnetcore:7.0"
+}

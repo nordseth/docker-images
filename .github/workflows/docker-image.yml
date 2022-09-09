@@ -15,10 +15,14 @@ jobs:
             push: nordseth/ansible:latest
           - folder: aspnetcore/6.0
             push: nordseth/aspnetcore:6.0
+          - folder: aspnetcore/7.0
+            push: nordseth/aspnetcore:7.0
           - folder: buildctl
             push: nordseth/buildctl:latest
           - folder: dotnet-builder/6.0
             push: nordseth/dotnet-builder:6.0
+          - folder: dotnet-builder/7.0
+            push: nordseth/dotnet-builder:7.0
           - folder: lego-kubectl
             push: nordseth/lego-kubectl:latest
     runs-on: ubuntu-22.04
