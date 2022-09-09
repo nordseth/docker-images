@@ -7,7 +7,8 @@ ENV HOME=/opt/app-root \
 
 RUN groupadd --system --gid 101 app && \
     adduser --uid 101 -gid 101 --shell /bin/false --home ${HOME} --system app && \
-    mkdir ${DOTNET_APP_PATH} 
+    mkdir ${DOTNET_APP_PATH} && \
+    chown 101:101 ${DOTNET_APP_PATH}
 
 WORKDIR ${DOTNET_APP_PATH}
 

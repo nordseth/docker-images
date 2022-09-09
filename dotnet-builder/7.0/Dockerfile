@@ -17,7 +17,8 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VER
 
 RUN groupadd --system --gid 101 app && \
     adduser --uid 101 -gid 101 --shell /bin/false --home ${HOME} --system app && \
-    mkdir  ${DOTNET_SRC_PATH} 
+    mkdir ${DOTNET_SRC_PATH} && \
+    chown 101:101 ${DOTNET_SRC_PATH}
 
 WORKDIR ${DOTNET_SRC_PATH}
 
