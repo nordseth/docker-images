@@ -1,5 +1,7 @@
 # dotnet-builder
 
+Rootless.
+
 Published on docker hub [nordseth/dotnet-builder](https://hub.docker.com/r/nordseth/dotnet-builder)
 
 Based on [mcr.microsoft.com/dotnet/core/sdk:6.0](https://hub.docker.com/_/microsoft-dotnet-sdk) with some additional tools
