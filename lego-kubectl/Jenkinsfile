@@ -1,6 +1,0 @@
-library 'dotnet'
-
-pipelineDockerImage {
-    folder "lego-kubectl"
-    toImage "docker.io/nordseth/lego-kubectl:latest"
-}

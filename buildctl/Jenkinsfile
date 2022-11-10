@@ -1,6 +1,0 @@
-library 'dotnet'
-
-pipelineDockerImage {
-    folder "buildctl"
-    toImage "docker.io/nordseth/buildctl:latest"
-}

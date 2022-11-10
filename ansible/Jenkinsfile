@@ -1,6 +1,0 @@
-library 'dotnet'
-
-pipelineDockerImage {
-    folder "ansible"
-    toImage "docker.io/nordseth/ansible:latest"
-}
