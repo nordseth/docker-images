@@ -1,7 +1,7 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.10.1" \
-    KUBE_VERSION="1.25.3"
+ENV HELM_VERSION="v3.10.2" \
+    KUBE_VERSION="1.25.4"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
