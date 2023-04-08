@@ -1,8 +1,8 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.10.3" \
-    KUBE_VERSION="1.26.0" \
-    BUILDCTL_VERSION="v0.10.6"
+ENV HELM_VERSION="3.11.2" \
+    KUBE_VERSION="1.26.3" \
+    BUILDCTL_VERSION="0.11.5"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
@@ -11,10 +11,10 @@ RUN apt-get update -q \
     && apt-add-repository --yes --update "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
     && apt-get install -y kubectl=$KUBE_VERSION-00 \
     # helm
-    && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
+    && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
     && helm repo add stable https://charts.helm.sh/stable \
     # buildctl
-    && wget -q https://github.com/moby/buildkit/releases/download/${BUILDCTL_VERSION}/buildkit-${BUILDCTL_VERSION}.linux-amd64.tar.gz -O - | tar -xzv \
+    && wget -q https://github.com/moby/buildkit/releases/download/v${BUILDCTL_VERSION}/buildkit-v${BUILDCTL_VERSION}.linux-amd64.tar.gz -O - | tar -xzv \
     # cleanup
     && rm -rf /var/lib/apt/lists/*

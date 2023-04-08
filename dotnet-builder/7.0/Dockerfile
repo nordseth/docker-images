@@ -5,14 +5,14 @@ ENV HOME=/opt/app-root \
     DOTNET_SRC_PATH=/opt/app-root/src \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
-ENV HELM_VERSION="v3.10.3" \
-    KUBE_VERSION="v1.26.0" \
+ENV HELM_VERSION="3.11.2" \
+    KUBE_VERSION="1.26.3" \
     NIBBLER_VERSION="1.8.2" \
-    MINVERCLI_VERSION="4.2.0"
+    MINVERCLI_VERSION="4.3.0"
 
-RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
-    && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
+    && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm 
 
 RUN groupadd --system --gid 1000 app && \

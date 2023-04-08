@@ -1,7 +1,7 @@
 FROM buildpack-deps:bionic-scm
 
-ENV HELM_VERSION="v3.10.3" \
-    KUBE_VERSION="1.26.0"
+ENV HELM_VERSION="3.11.2" \
+    KUBE_VERSION="1.26.3"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
@@ -15,7 +15,7 @@ RUN apt-get update -q \
     # add iso/cloud image utils
     && apt-get install -y --no-install-recommends genisoimage cloud-image-utils \
     # helm
-    && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
+    && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
     && helm repo add stable https://charts.helm.sh/stable \
     # cleanup
