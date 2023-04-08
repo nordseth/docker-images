@@ -17,8 +17,6 @@ jobs:
             push: nordseth/aspnetcore:6.0
           - folder: aspnetcore/7.0
             push: nordseth/aspnetcore:7.0
-          - folder: aspnetcore/8.0
-            push: nordseth/aspnetcore:8.0-preview
           - folder: buildctl
             push: nordseth/buildctl:latest
           - folder: dotnet-builder/6.0
