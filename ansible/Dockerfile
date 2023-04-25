@@ -1,4 +1,4 @@
-FROM buildpack-deps:bionic-scm
+FROM buildpack-deps:jammy-scm
 
 ENV HELM_VERSION="3.11.3" \
     KUBE_VERSION="1.26.4"
