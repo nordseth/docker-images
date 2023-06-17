@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0-preview
 
 ENV HELM_VERSION="3.12.1" \
     KUBE_VERSION="1.27.3" \
-    NIBBLER_VERSION="1.10.0-beta" \
+    NIBBLER_VERSION="1.10.0" \
     MINVERCLI_VERSION="4.3.0"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
