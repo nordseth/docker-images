@@ -11,6 +11,10 @@ jobs:
     strategy:
       matrix:
         image:
+          - folder: action-runner
+            push: nordseth/action-runner:latest
+          - folder: action-runner/dotnet
+            push: nordseth/action-runner:dotnet
           - folder: ansible
             push: nordseth/ansible:latest
           - folder: aspnetcore/6.0
