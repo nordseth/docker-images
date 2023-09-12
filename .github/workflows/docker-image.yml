@@ -24,7 +24,7 @@ jobs:
           - folder: aspnetcore/7.0
             push: nordseth/aspnetcore:7.0
           - folder: aspnetcore/8.0
-            push: nordseth/aspnetcore:8.0-preview
+            push: nordseth/aspnetcore:8.0-rc
           - folder: buildctl
             push: nordseth/buildctl:latest
           - folder: dotnet-builder/6.0
@@ -32,7 +32,7 @@ jobs:
           - folder: dotnet-builder/7.0
             push: nordseth/dotnet-builder:7.0
           - folder: dotnet-builder/8.0
-            push: nordseth/dotnet-builder:8.0-preview
+            push: nordseth/dotnet-builder:8.0-rc
           - folder: lego-kubectl
             push: nordseth/lego-kubectl:latest
     runs-on: ubuntu-22.04

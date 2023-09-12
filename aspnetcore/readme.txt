@@ -16,4 +16,5 @@ RUN groupadd \
         --system \
         app
         
-From dotnet 8 the default images come with app user already setup, see https://devblogs.microsoft.com/dotnet/securing-containers-with-rootless/
+From dotnet 8 the default images come with app user already setup, 
+see https://devblogs.microsoft.com/dotnet/securing-containers-with-rootless/
