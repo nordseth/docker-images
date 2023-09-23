@@ -28,6 +28,7 @@ RUN apt-get update -y \
     lsb-release \
     curl \
     wget \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid=$APP_UID runner \
