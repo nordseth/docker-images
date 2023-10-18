@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:6.0-jammy as tmp
 
 ARG RUNNER_VERSION=2.310.2
 ARG RUNNER_ARCH="x64"
-ARG RUNNER_CONTAINER_HOOKS_VERSION=0.3.2
+ARG RUNNER_CONTAINER_HOOKS_VERSION=0.4.0
 
 RUN apt update -y && apt install curl unzip -y
 
