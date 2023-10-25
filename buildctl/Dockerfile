@@ -4,12 +4,10 @@ ENV HELM_VERSION="3.13.1" \
     KUBE_VERSION="1.28.3" \
     BUILDCTL_VERSION="0.12.2"
 
-RUN apt-get update -q \
-    && apt-get install -y software-properties-common apt-transport-https curl \
+RUN \
     # add kubectl
-    && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
-    && apt-add-repository --yes --update "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
-    && apt-get install -y kubectl=$KUBE_VERSION-00 \
+    wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    && chmod +x /usr/local/bin/kubectl \
     # helm
     && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \

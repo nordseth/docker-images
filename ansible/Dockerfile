@@ -9,9 +9,8 @@ RUN apt-get update -q \
     && apt-add-repository --yes --update ppa:ansible/ansible \
     && apt-get install -y ansible \
     # add kubectl
-    && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
-    && apt-add-repository --yes --update "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
-    && apt-get install -y kubectl=$KUBE_VERSION-00 \
+    && wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    && chmod +x /usr/local/bin/kubectl \
     # add iso/cloud image utils
     && apt-get install -y --no-install-recommends genisoimage cloud-image-utils \
     # helm
