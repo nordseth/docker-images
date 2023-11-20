@@ -19,6 +19,5 @@ ENV PATH=${PATH}:/home/app/.dotnet/tools \
 RUN mkdir ${SRC_PATH}
 WORKDIR ${SRC_PATH}
 
-RUN helm repo add stable https://charts.helm.sh/stable \
-    && dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
+RUN dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
     && dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION}
