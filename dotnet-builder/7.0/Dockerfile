@@ -5,9 +5,9 @@ ENV HOME=/opt/app-root \
     DOTNET_SRC_PATH=/opt/app-root/src \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
-ENV HELM_VERSION="3.13.2" \
-    KUBE_VERSION="1.28.4" \
-    NIBBLER_VERSION="1.10.0" \
+ENV HELM_VERSION="3.13.3" \
+    KUBE_VERSION="1.29.0" \
+    NIBBLER_VERSION="1.11.0-beta.1" \
     MINVERCLI_VERSION="4.3.0"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
