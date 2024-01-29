@@ -1,7 +1,7 @@
 FROM alpine:3
 
-ENV LEGO_VERSION="4.14.2" \
-    KUBE_VERSION="1.29.0"
+ENV LEGO_VERSION="4.15.0" \
+    KUBE_VERSION="1.29.1"
 
 RUN wget -q https://github.com/go-acme/lego/releases/download/v${LEGO_VERSION}/lego_v${LEGO_VERSION}_linux_amd64.tar.gz -O - | tar -xzO lego > /usr/local/bin/lego \
     && chmod +x /usr/local/bin/lego 

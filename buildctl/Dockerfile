@@ -1,7 +1,7 @@
 FROM buildpack-deps:jammy-scm
 
-ENV HELM_VERSION="3.13.3" \
-    KUBE_VERSION="1.29.0" \
+ENV HELM_VERSION="3.14.0" \
+    KUBE_VERSION="1.29.1" \
     BUILDCTL_VERSION="0.12.4"
 
 RUN \
