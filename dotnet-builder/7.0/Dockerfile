@@ -26,4 +26,4 @@ WORKDIR ${DOTNET_SRC_PATH}
 USER 1000
 
 RUN dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION} \
-    && Nibbler
+    && Nibbler || true
