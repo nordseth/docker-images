@@ -5,15 +5,16 @@ ENV HOME=/opt/app-root \
     DOTNET_SRC_PATH=/opt/app-root/src \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
-ENV HELM_VERSION="3.14.0" \
-    KUBE_VERSION="1.29.1" \
-    NIBBLER_VERSION="1.11.0-beta.1" \
+ENV HELM_VERSION="3.14.1" \
+    KUBE_VERSION="1.29.2" \
+    NIBBLER_VERSION="1.11.0-beta.2" \
     MINVERCLI_VERSION="4.3.0"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
-    && chmod +x /usr/local/bin/helm 
+    && chmod +x /usr/local/bin/helm \
+    && wget -q https://github.com/nordseth/Nibbler/releases/download/v${NIBBLER_VERSION}/Nibbler.${NIBBLER_VERSION}_linux-x64.tar.gz -O - | tar -xzO Nibbler > /usr/local/bin/Nibbler
 
 RUN mkdir -p ${DOTNET_SRC_PATH} && \
     useradd -u 1000 -r -g 0 -d ${HOME} -s /sbin/nologin \
@@ -24,5 +25,5 @@ WORKDIR ${DOTNET_SRC_PATH}
 
 USER 1000
 
-RUN dotnet tool install --global Nibbler --version ${NIBBLER_VERSION} \
-    && dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION}
+RUN dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION} \
+    Nibbler

@@ -1,8 +1,8 @@
 FROM buildpack-deps:jammy-scm
 
-ENV HELM_VERSION="3.14.0" \
-    KUBE_VERSION="1.29.1" \
-    BUILDCTL_VERSION="0.12.4"
+ENV HELM_VERSION="3.14.1" \
+    KUBE_VERSION="1.29.2" \
+    BUILDCTL_VERSION="0.12.5"
 
 RUN \
     # add kubectl
