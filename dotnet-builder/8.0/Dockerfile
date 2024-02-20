@@ -21,4 +21,4 @@ RUN mkdir ${SRC_PATH}
 WORKDIR ${SRC_PATH}
 
 RUN dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION} \
-    Nibbler
+    && Nibbler
