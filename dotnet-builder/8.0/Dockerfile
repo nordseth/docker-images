@@ -9,7 +9,7 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VE
     && chmod +x /usr/local/bin/kubectl \
     && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
-    && wget -q https://github.com/nordseth/Nibbler/releases/download/v${NIBBLER_VERSION}/Nibbler.${NIBBLER_VERSION}_linux-x64.tar.gz -O - | tar -xzO Nibbler > /usr/local/bin/Nibbler
+    && wget -q https://github.com/nordseth/Nibbler/releases/download/v${NIBBLER_VERSION}/Nibbler.${NIBBLER_VERSION}_linux-x64.tar.gz -O - | tar -xzO Nibbler > /usr/local/bin/nibbler
 
 USER app
 
@@ -21,4 +21,4 @@ RUN mkdir ${SRC_PATH}
 WORKDIR ${SRC_PATH}
 
 RUN dotnet tool install --global minver-cli --version ${MINVERCLI_VERSION} \
-    && Nibbler || true
+    && nibbler || true
