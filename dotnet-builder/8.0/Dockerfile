@@ -14,7 +14,7 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VE
 
 RUN groupadd \
         --gid=1000 \
-        app \
+        jenkins \
     && useradd -l \
         --uid=1000 \
         --gid=1000 \
