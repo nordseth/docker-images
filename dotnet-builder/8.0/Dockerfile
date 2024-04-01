@@ -12,10 +12,19 @@ RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VE
     && wget -q https://github.com/nordseth/Nibbler/releases/download/v${NIBBLER_VERSION}/Nibbler.${NIBBLER_VERSION}_linux-x64.tar.gz -O - | tar -xzO nibbler > /usr/local/bin/nibbler \
     && chmod +x /usr/local/bin/nibbler
 
-USER app
+RUN groupadd \
+        --gid=1000 \
+        app \
+    && useradd -l \
+        --uid=1000 \
+        --gid=1000 \
+        --create-home \
+        jenkins
 
-ENV PATH=${PATH}:/home/app/.dotnet/tools \
-    SRC_PATH=/home/app/src \
+USER jenkins
+
+ENV PATH=${PATH}:/home/jenkins/.dotnet/tools \
+    SRC_PATH=/home/jenkins/src \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
 RUN mkdir ${SRC_PATH}
