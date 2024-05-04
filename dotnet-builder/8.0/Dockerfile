@@ -1,9 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-ENV HELM_VERSION="3.14.3" \
-    KUBE_VERSION="1.29.3" \
+ENV HELM_VERSION="3.14.4" \
+    KUBE_VERSION="1.30.0" \
     NIBBLER_VERSION="1.11.0-beta.3" \
-    MINVERCLI_VERSION="4.3.0"
+    MINVERCLI_VERSION="5.0.0"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
