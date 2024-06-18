@@ -1,7 +1,7 @@
 FROM buildpack-deps:jammy-scm
 
-ENV HELM_VERSION="3.15.1" \
-    KUBE_VERSION="1.30.1"
+ENV HELM_VERSION="3.15.2" \
+    KUBE_VERSION="1.30.2"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
