@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-ENV HELM_VERSION="3.15.3" \
-    KUBE_VERSION="1.30.3" \
+ENV HELM_VERSION="3.15.4" \
+    KUBE_VERSION="1.31.0" \
     NIBBLER_VERSION="1.11.0-beta.3" \
     MINVERCLI_VERSION="5.0.0"
 
