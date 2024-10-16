@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-ENV HELM_VERSION="3.15.4" \
-    KUBE_VERSION="1.31.0" \
-    NIBBLER_VERSION="1.11.0-beta.3" \
+ENV HELM_VERSION="3.16.2" \
+    KUBE_VERSION="1.31.1" \
+    NIBBLER_VERSION="1.11.0" \
     MINVERCLI_VERSION="5.0.0"
 
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
