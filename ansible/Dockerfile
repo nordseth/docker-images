@@ -9,7 +9,7 @@ RUN apt-get update -q \
     && apt-add-repository --yes --update ppa:ansible/ansible \
     && apt-get install -y ansible \
     # add kubectl
-    && wget -q https://dl.k8s.io/v${KUBE_VERSION}/release/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    && wget -q https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     # add iso/cloud image utils
     && apt-get install -y --no-install-recommends genisoimage cloud-image-utils \
