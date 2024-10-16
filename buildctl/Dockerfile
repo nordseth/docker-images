@@ -6,7 +6,7 @@ ENV HELM_VERSION="3.16.2" \
 
 RUN \
     # add kubectl
-    wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    wget -q https://dl.k8s.io/v${KUBE_VERSION}/release/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     # helm
     && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
