@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:9.0
 
 ENV HELM_VERSION="3.16.3" \
     KUBE_VERSION="1.31.3" \
