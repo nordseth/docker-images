@@ -19,14 +19,10 @@ jobs:
             push: nordseth/action-runner:dotnet
           - folder: ansible
             push: nordseth/ansible:latest
-          - folder: aspnetcore/6.0
-            push: nordseth/aspnetcore:6.0
           - folder: aspnetcore/8.0
             push: nordseth/aspnetcore:8.0
           - folder: buildctl
             push: nordseth/buildctl:latest
-          - folder: dotnet-builder/6.0
-            push: nordseth/dotnet-builder:6.0
           - folder: dotnet-builder/8.0
             push: nordseth/dotnet-builder:8.0
           - folder: dotnet-builder/9.0
