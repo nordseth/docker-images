@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-jammy as tmp
 
-ARG RUNNER_VERSION=2.321.0
+ARG RUNNER_VERSION=2.322.0
 ARG RUNNER_ARCH="x64"
 ARG RUNNER_CONTAINER_HOOKS_VERSION=0.6.2
 
