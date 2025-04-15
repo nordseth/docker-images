@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-jammy as tmp
+FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-noble as tmp
 
-ARG RUNNER_VERSION=2.322.0
+ARG RUNNER_VERSION=2.323.0
 ARG RUNNER_ARCH="x64"
 ARG RUNNER_CONTAINER_HOOKS_VERSION=0.6.2
 
@@ -15,7 +15,7 @@ RUN curl -f -L -o runner-container-hooks.zip https://github.com/actions/runner-c
     && unzip ./runner-container-hooks.zip -d ./k8s \
     && rm runner-container-hooks.zip
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy
+FROM mcr.microsoft.com/dotnet/sdk:9.0-noble
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
