@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
   schedule:
     - cron:  '30 12 * * WED'
 
@@ -35,11 +35,11 @@ jobs:
     - name: Build the Docker image
       run: cd ${{ matrix.image.folder }} && docker build . --file Dockerfile -t ${{ matrix.image.push }} --label build.commit.id=${{ github.sha }}
     - name: Login to Docker Hub
-      if: ${{ github.ref == 'refs/heads/master' }}
+      if: ${{ github.ref == 'refs/heads/main' }}
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Push image
-      if: ${{ github.ref == 'refs/heads/master' }}
+      if: ${{ github.ref == 'refs/heads/main' }}
       run: docker push ${{ matrix.image.push }}
