@@ -33,7 +33,7 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid=$APP_UID runner \
-    && adduser --disabled-password --gecos "" --uid $APP_UID -gid=$APP_UID runner \
+    && useradd --uid $APP_UID --gid=$APP_UID runner \
     && usermod -aG sudo runner \
     && echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers \
     && echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
