@@ -19,7 +19,7 @@ RUN apt-get update -q \
     # cleanup
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /root/.ssh -f \
+RUN mkdir -p /root/.ssh \
     && chmod 700 /root/.ssh
 
 RUN mkdir /ansible
