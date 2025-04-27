@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-noble as tmp
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-jammy as tmp
 
 ARG RUNNER_VERSION=2.323.0
 ARG RUNNER_ARCH="x64"
@@ -15,7 +15,7 @@ RUN curl -f -L -o runner-container-hooks.zip https://github.com/actions/runner-c
     && unzip ./runner-container-hooks.zip -d ./k8s \
     && rm runner-container-hooks.zip
 
-FROM mcr.microsoft.com/dotnet/sdk:9.0-noble
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy 
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
@@ -33,7 +33,7 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid=$APP_UID runner \
-    && useradd --uid $APP_UID --gid=$APP_UID runner \
+    && adduser --disabled-password --gecos "" --uid $APP_UID -gid=$APP_UID runner \
     && usermod -aG sudo runner \
     && echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers \
     && echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
