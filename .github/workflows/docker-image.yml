@@ -19,8 +19,8 @@ jobs:
             push: nordseth/action-runner:dotnet
           - folder: ansible
             push: nordseth/ansible:latest
-          - folder: aspnetcore/rpicam
-            push: nordseth/aspnetcore:rpicam
+          - folder: aspnetcore/8.0
+            push: nordseth/aspnetcore:8.0
           - folder: buildctl
             push: nordseth/buildctl:latest
           - folder: dotnet-builder/8.0
