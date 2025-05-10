@@ -13,23 +13,9 @@ jobs:
     strategy:
       matrix:
         image:
-          - folder: action-runner
-            push: nordseth/action-runner:latest
-          - folder: action-runner/dotnet
-            push: nordseth/action-runner:dotnet
-          - folder: ansible
-            push: nordseth/ansible:latest
           - folder: aspnetcore/rpicam
             push: nordseth/aspnetcore:rpicam
-          - folder: buildctl
-            push: nordseth/buildctl:latest
-          - folder: dotnet-builder/8.0
-            push: nordseth/dotnet-builder:8.0
-          - folder: dotnet-builder/9.0
-            push: nordseth/dotnet-builder:9.0
-          - folder: lego-kubectl
-            push: nordseth/lego-kubectl:latest
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
