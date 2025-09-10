@@ -2,12 +2,12 @@ FROM arm64v8/debian:bookworm-slim
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
-        gnupg \
+        gnupg wget \
 
     && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
 
-    && wget https://packages.microsoft.com/config/debian/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
     && rm packages-microsoft-prod.deb \
 
