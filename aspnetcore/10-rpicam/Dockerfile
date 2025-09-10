@@ -2,7 +2,7 @@ FROM arm64v8/debian:bookworm-slim
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
-        gnupg wget \
+        gnupg wget ca-certificates \
 
     && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
