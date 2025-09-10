@@ -7,6 +7,10 @@ RUN apt-get update -y \
     && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
 
+    && wget https://packages.microsoft.com/keys/microsoft.asc \
+    && cat microsoft.asc | gpg --dearmor -o microsoft.asc.gpg \
+    && mv microsoft.asc.gpg $(cat /etc/apt/sources.list.d/microsoft-prod.list | grep -oP "(?<=signed-by=).*(?=\])") \
+
     && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
     && rm packages-microsoft-prod.deb \
