@@ -2,27 +2,23 @@ FROM arm64v8/debian:bookworm-slim
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
-        gnupg wget ca-certificates \
+        gnupg \
 
     && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
 
-    && wget https://packages.microsoft.com/keys/microsoft.asc \
-    && cat microsoft.asc | gpg --dearmor -o microsoft.asc.gpg \
-
-    && wget https://packages.microsoft.com/config/debian/12/prod.list \
-    && mv prod.list /etc/apt/sources.list.d/microsoft-prod.list \
-    && mv microsoft.asc.gpg $(cat /etc/apt/sources.list.d/microsoft-prod.list | grep -oP "(?<=signed-by=).*(?=\])") \
-
     && apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
         rpicam-apps-lite \
-    && apt-get install -y \
-        aspnetcore-runtime-10 \
     && apt-get clean \
     && apt-get autoremove \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh \
+    && chmod +x dotnet-install.sh \
+    && ./dotnet-install.sh --channel 10.0 --runtime aspnetcore \
+    && rm dotnet-install.sh
 
 # from dotnet runtime-deps
 
