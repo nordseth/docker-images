@@ -18,7 +18,8 @@ RUN apt-get update -y \
 RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh \
     && chmod +x dotnet-install.sh \
     && ./dotnet-install.sh --channel 10.0 --runtime aspnetcore \
-    && rm dotnet-install.sh
+    && rm dotnet-install.sh \
+    && dotnet --list-runtimes
 
 # from dotnet runtime-deps
 
