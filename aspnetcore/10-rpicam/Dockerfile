@@ -2,7 +2,7 @@ FROM arm64v8/debian:bookworm-slim
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
-        gnupg \
+        gnupg wget \
 
     && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
@@ -15,7 +15,7 @@ RUN apt-get update -y \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh \
+RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh \
     && chmod +x dotnet-install.sh \
     && ./dotnet-install.sh --channel 10.0 --runtime aspnetcore \
     && rm dotnet-install.sh
