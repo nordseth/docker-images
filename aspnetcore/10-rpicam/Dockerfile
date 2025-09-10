@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu/:noble as builder
+FROM arm64v8/ubuntu:noble as builder
 
 RUN apt update && \
     apt install -y git build-essential && \
