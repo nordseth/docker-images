@@ -31,6 +31,8 @@ jobs:
             push: nordseth/dotnet-builder:8.0
           - folder: dotnet-builder/9.0
             push: nordseth/dotnet-builder:9.0
+          - folder: dotnet-ci/10.0
+            push: nordseth/dotnet-ci:10.0
           - folder: lego-kubectl
             push: nordseth/lego-kubectl:latest
     runs-on: ubuntu-24.04
