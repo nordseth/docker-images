@@ -2,7 +2,7 @@ FROM buildpack-deps:noble-scm
 
 ENV HELM_VERSION="3.19.2" \
     KUBE_VERSION="1.34.2" \
-    BUILDCTL_VERSION="0.26.1"
+    BUILDCTL_VERSION="0.26.2"
 
 RUN \
     # add kubectl
