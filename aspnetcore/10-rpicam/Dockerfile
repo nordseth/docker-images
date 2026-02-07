@@ -9,7 +9,7 @@ RUN apt-get update -y \
 
     && apt-get update -y \
     && apt-get install -y --no-install-recommends \ 
-        rpicam-apps-lite \
+        rpicam-apps-lite ffmpeg \
     && apt-get clean \
     && apt-get autoremove \
     && rm -rf /var/cache/apt/archives/* \
