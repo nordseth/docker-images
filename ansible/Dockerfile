@@ -1,7 +1,7 @@
 FROM buildpack-deps:noble-scm
 
-ENV HELM_VERSION="3.20.0" \
-    KUBE_VERSION="1.35.2"
+ENV HELM_VERSION="3.20.1" \
+    KUBE_VERSION="1.35.3"
 
 RUN apt-get update -q \
     && apt-get install -y software-properties-common apt-transport-https curl \
