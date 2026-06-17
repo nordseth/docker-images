@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0
 
-ENV HELM_VERSION="4.2.0" \
-    KUBE_VERSION="1.36.1" \
-    NIBBLER_VERSION="1.15.2" \
+ENV HELM_VERSION="4.2.1" \
+    KUBE_VERSION="1.36.2" \
+    NIBBLER_VERSION="1.15.3" \
     MINVERCLI_VERSION="7.0.0"
 
 RUN wget -q https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \

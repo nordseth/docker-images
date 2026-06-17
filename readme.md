@@ -3,9 +3,9 @@ Docker images for https://hub.docker.com/u/nordseth.
 ### tool versions
 
 ```
-KUBE_VERSION="1.36.1"
-HELM_VERSION="4.2.0"
-NIBBLER_VERSION="1.15.2"
+KUBE_VERSION="1.36.2"
+HELM_VERSION="4.2.1"
+NIBBLER_VERSION="1.15.3"
 MINVERCLI_VERSION="7.0.0"
 BUILDCTL_VERSION="0.30.0"
 LEGO_VERSION="5.2.2"
