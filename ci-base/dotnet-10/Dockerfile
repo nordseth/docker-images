@@ -6,7 +6,7 @@ ENV HELM_VERSION="4.2.2" \
 
 ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 ENV DOTNET_SKIP_WORKLOAD_INTEGRITY_CHECK=true
-ENV NUGET_PACKAGES=/nuget-cache
+# ENV NUGET_PACKAGES=/nuget-cache
 
 RUN wget -q https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
@@ -15,6 +15,6 @@ RUN wget -q https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -
     && wget -q https://github.com/nordseth/Nibbler/releases/download/v${NIBBLER_VERSION}/Nibbler.${NIBBLER_VERSION}_linux-x64.tar.gz -O - | tar -xzO nibbler > /usr/local/bin/nibbler \
     && chmod +x /usr/local/bin/nibbler
 
-RUN dotnet new webapi -o /home/app/tmp \
-    && dotnet restore /home/app/tmp \
-    && rm -rf /home/app/tmp
+# RUN dotnet new webapi -o /home/app/tmp \
+#     && dotnet restore /home/app/tmp \
+#     && rm -rf /home/app/tmp
