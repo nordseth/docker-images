@@ -1,6 +1,6 @@
 FROM buildpack-deps:noble-scm
 
-ENV HELM_VERSION="4.2.2" \
+ENV HELM_VERSION="4.2.3" \
     KUBE_VERSION="1.36.2"
 
 RUN apt-get update -q \
