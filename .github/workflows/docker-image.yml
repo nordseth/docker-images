@@ -37,7 +37,7 @@ jobs:
             push: nordseth/lego-kubectl:latest
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Build the Docker image
       run: |
         cd ${{ matrix.image.folder }} 
