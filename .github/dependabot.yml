@@ -10,7 +10,8 @@ updates:
           - "*"
 
   - package-ecosystem: "docker"
-    directory: "/"
+    directories:
+      - "/**"
     schedule:
       interval: "weekly"
     groups:
