@@ -11,19 +11,7 @@ updates:
 
   - package-ecosystem: "docker"
     directories:
-      - "/action-runner"
-      - "/action-runner/dotnet"
-      - "/ansible"
-      - "/aspnetcore/10-ffmpeg"
-      - "/aspnetcore/10-rpicam"
-      - "/aspnetcore/8.0"
-      - "/aspnetcore/9-ffmpeg"
-      - "/aspnetcore/9-rpicam"
-      - "/buildctl"
-      - "/ci-base/dotnet-10"
-      - "/dotnet-builder/8.0"
-      - "/dotnet-builder/9.0"
-      - "/lego-kubectl"
+      - "/**"
     schedule:
       interval: "weekly"
     groups:
