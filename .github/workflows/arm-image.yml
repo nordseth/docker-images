@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron:  '30 12 * * WED'
+    # GitHub Actions cron is evaluated in UTC.
+    - cron:  '15 18 * * THU'
 
 jobs:
   build-push:
