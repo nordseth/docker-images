@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
   schedule:
     # GitHub Actions cron is evaluated in UTC.
-    - cron:  '15 18 * * THU'
+    - cron:  '15 23 * * THU'
 
 jobs:
   build-push:
