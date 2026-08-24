@@ -1,7 +1,7 @@
 FROM buildpack-deps:noble-scm
 
-ENV HELM_VERSION="4.2.3" \
-    KUBE_VERSION="1.36.3" \
+ENV HELM_VERSION="4.2.4" \
+    KUBE_VERSION="1.36.4" \
     BUILDCTL_VERSION="0.32.2"
 
 RUN \
