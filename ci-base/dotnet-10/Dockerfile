@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0
 
 ENV HELM_VERSION="4.3.0" \
-    KUBE_VERSION="1.37.0" \
+    KUBE_VERSION="1.37.1" \
     NIBBLER_VERSION="1.15.3"
 
 ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
