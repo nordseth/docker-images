@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-noble AS tmp
 
-ARG RUNNER_VERSION="2.337.0"
+ARG RUNNER_VERSION="2.338.0"
 ARG RUNNER_ARCH="x64"
 ARG RUNNER_CONTAINER_HOOKS_VERSION="0.8.1"
 
