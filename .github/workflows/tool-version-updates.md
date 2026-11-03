@@ -3,6 +3,7 @@ description: Weekly check of GitHub releases for the tools listed in readme.md; 
 on:
   schedule: weekly
   workflow_dispatch:
+model: gpt-6-luna
 permissions:
   contents: read
   copilot-requests: write
