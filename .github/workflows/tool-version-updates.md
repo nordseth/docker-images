@@ -28,6 +28,7 @@ safe-outputs:
     protected-files: allowed
     max: 2
   noop:
+    report-as-issue: false
 ---
 
 # Tool Version Updates
