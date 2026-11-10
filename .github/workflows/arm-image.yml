@@ -16,6 +16,8 @@ jobs:
         image:
           - folder: aspnetcore/10-rpicam
             push: nordseth/aspnetcore:10-rpicam
+          - folder: aspnetcore/11-rpicam
+            push: nordseth/aspnetcore:11-rpicam
     runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v7

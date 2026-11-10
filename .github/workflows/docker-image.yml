@@ -22,6 +22,8 @@ jobs:
             push: nordseth/ansible:latest
           - folder: aspnetcore/10-ffmpeg
             push: nordseth/aspnetcore:10-ffmpeg
+          - folder: aspnetcore/11-ffmpeg
+            push: nordseth/aspnetcore:11-ffmpeg
           - folder: buildctl
             push: nordseth/buildctl:latest
           - folder: ci-base/dotnet-10
