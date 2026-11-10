@@ -14,8 +14,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - folder: aspnetcore/9-rpicam
-            push: nordseth/aspnetcore:rpicam
           - folder: aspnetcore/10-rpicam
             push: nordseth/aspnetcore:10-rpicam
     runs-on: ubuntu-24.04-arm
