@@ -20,18 +20,10 @@ jobs:
             push: nordseth/action-runner:dotnet
           - folder: ansible
             push: nordseth/ansible:latest
-          - folder: aspnetcore/8.0
-            push: nordseth/aspnetcore:8.0
-          - folder: aspnetcore/9-ffmpeg
-            push: nordseth/aspnetcore:ffmpeg
           - folder: aspnetcore/10-ffmpeg
             push: nordseth/aspnetcore:10-ffmpeg
           - folder: buildctl
             push: nordseth/buildctl:latest
-          - folder: dotnet-builder/8.0
-            push: nordseth/dotnet-builder:8.0
-          - folder: dotnet-builder/9.0
-            push: nordseth/dotnet-builder:9.0
           - folder: ci-base/dotnet-10
             push: nordseth/ci-base:dotnet-10
           - folder: ci-base/dotnet-11
