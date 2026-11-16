@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0
 
-ENV HELM_VERSION="4.3.1" \
+ENV HELM_VERSION="4.3.2" \
     KUBE_VERSION="1.37.2" \
     NIBBLER_VERSION="1.16.2"
 

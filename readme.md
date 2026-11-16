@@ -4,7 +4,7 @@ Docker images for https://hub.docker.com/u/nordseth.
 
 ```
 KUBE_VERSION="1.37.2"
-HELM_VERSION="4.3.1"
+HELM_VERSION="4.3.2"
 NIBBLER_VERSION="1.16.2"
 BUILDCTL_VERSION="0.35.0"
 LEGO_VERSION="5.6.0"
