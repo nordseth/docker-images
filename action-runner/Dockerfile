@@ -33,7 +33,7 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid=$APP_UID runner \
-    && useradd --uid $APP_UID --gid $APP_UID --create-home runner \
+    && useradd --uid $APP_UID --gid $APP_UID --create-home --shell /bin/bash runner \
     && usermod -aG sudo runner \
     # drop-in instead of overwriting /etc/sudoers, so the distro defaults (env_reset, secure_path, root) are kept
     && printf '%s\n' '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' 'Defaults env_keep += "DEBIAN_FRONTEND"' > /etc/sudoers.d/runner \
