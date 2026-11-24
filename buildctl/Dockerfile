@@ -12,6 +12,6 @@ RUN \
     && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
     # buildctl
-    && wget -q https://github.com/moby/buildkit/releases/download/v${BUILDCTL_VERSION}/buildkit-v${BUILDCTL_VERSION}.linux-amd64.tar.gz -O - | tar -xzv \
-    # cleanup
-    && rm -rf /var/lib/apt/lists/*
+    # (extract only buildctl; unpacking the tarball's bin/ at / would replace the /bin -> usr/bin symlink)
+    && wget -q https://github.com/moby/buildkit/releases/download/v${BUILDCTL_VERSION}/buildkit-v${BUILDCTL_VERSION}.linux-amd64.tar.gz -O - | tar -xzO bin/buildctl > /usr/local/bin/buildctl \
+    && chmod +x /usr/local/bin/buildctl
