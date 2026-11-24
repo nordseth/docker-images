@@ -11,6 +11,7 @@ on:
 
 jobs:
   build-push:
+    name: build ${{ matrix.image.folder }}
     strategy:
       # Don't let one failing image cancel (and skip pushing) the others.
       fail-fast: false
