@@ -6,17 +6,7 @@ updates:
   schedule:
     interval: weekly
 - directories:
-  - /action-runner
-  - /action-runner/dotnet
-  - /ansible
-  - /aspnetcore/10-ffmpeg
-  - /aspnetcore/10-rpicam
-  - /aspnetcore/11-ffmpeg
-  - /aspnetcore/11-rpicam
-  - /buildctl
-  - /ci-base/dotnet-10
-  - /ci-base/dotnet-11
-  - /lego-kubectl
+  - "/**/*"
   package-ecosystem: docker
   schedule:
     interval: weekly
