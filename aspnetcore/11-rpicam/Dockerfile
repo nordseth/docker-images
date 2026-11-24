@@ -1,18 +1,31 @@
-FROM arm64v8/debian:bookworm-slim
+FROM arm64v8/debian:trixie-slim
+
+# Raspberry Pi archive signing key (full fingerprint). The keyserver copy carries the SHA-512
+# re-signatures that trixie's apt (sqv) requires; raspberrypi.gpg.key on the archive only has SHA-1 ones.
+ARG RPI_ARCHIVE_FPR="CF8A1AF502A2AA2D763BAE7E82B129927FA3303E"
 
 RUN apt-get update -y \
-    && apt-get install -y --no-install-recommends \ 
-        gnupg wget ca-certificates \
-
-    && echo "deb http://archive.raspberrypi.org/debian/ bookworm main" > /etc/apt/sources.list.d/raspi.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E \
-
+    && apt-get install -y --no-install-recommends \
+        ca-certificates gnupg wget \
+    # Raspberry Pi archive, with its key pinned via Signed-By (apt-key no longer exists in trixie)
+    && wget -qO /tmp/raspberrypi.asc "https://keyserver.ubuntu.com/pks/lookup?op=get&options=mr&search=0x${RPI_ARCHIVE_FPR}" \
+    && gpg --show-keys --with-colons /tmp/raspberrypi.asc | grep -qx "fpr:::::::::${RPI_ARCHIVE_FPR}:" \
+    && gpg --dearmor -o /usr/share/keyrings/raspberrypi-archive-keyring.gpg /tmp/raspberrypi.asc \
+    && rm /tmp/raspberrypi.asc \
+    && printf '%s\n' \
+        'Types: deb' \
+        'URIs: http://archive.raspberrypi.com/debian/' \
+        'Suites: trixie' \
+        'Components: main' \
+        'Signed-By: /usr/share/keyrings/raspberrypi-archive-keyring.gpg' \
+        > /etc/apt/sources.list.d/raspi.sources \
     && apt-get update -y \
-    && apt-get install -y --no-install-recommends \ 
+    && apt-get install -y --no-install-recommends \
         rpicam-apps-lite ffmpeg \
-    && apt-get clean \
+        # .NET runtime dependencies, as in mcr.microsoft.com/dotnet/runtime-deps
+        libc6 libgcc-s1 libicu76 libssl3t64 libstdc++6 tzdata zlib1g \
     && apt-get autoremove -y \
-    && rm -rf /var/cache/apt/archives/* \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh \
