@@ -10,11 +10,15 @@ RUN apt-get update -q \
     && apt-get install -y ansible \
     # add kubectl
     && wget -q https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    && echo "$(wget -qO- https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl.sha256)  /usr/local/bin/kubectl" | sha256sum -c - \
     && chmod +x /usr/local/bin/kubectl \
     # add iso/cloud image utils
     && apt-get install -y --no-install-recommends genisoimage cloud-image-utils \
     # helm
-    && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
+    && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O /tmp/helm.tar.gz \
+    && echo "$(wget -qO- https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256)  /tmp/helm.tar.gz" | sha256sum -c - \
+    && tar -xzOf /tmp/helm.tar.gz linux-amd64/helm > /usr/local/bin/helm \
+    && rm /tmp/helm.tar.gz \
     && chmod +x /usr/local/bin/helm \
     # cleanup
     && rm -rf /var/lib/apt/lists/*

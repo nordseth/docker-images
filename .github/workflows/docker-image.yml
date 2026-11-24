@@ -20,9 +20,6 @@ jobs:
           - folder: action-runner
             push: nordseth/action-runner:latest
             smoke: ./bin/Runner.Listener --version && test -f k8s/index.js && sudo -n true
-          - folder: action-runner/dotnet
-            push: nordseth/action-runner:dotnet
-            smoke: ./bin/Runner.Listener --version && test -f k8s/index.js && sudo -n true && dotnet --list-sdks
           - folder: ansible
             push: nordseth/ansible:latest
             smoke: ansible --version && kubectl version --client && helm version
