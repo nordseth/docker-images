@@ -35,8 +35,10 @@ RUN apt-get update -y \
 RUN groupadd --gid=$APP_UID runner \
     && useradd --uid $APP_UID --gid $APP_UID --create-home runner \
     && usermod -aG sudo runner \
-    && echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers \
-    && echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
+    # drop-in instead of overwriting /etc/sudoers, so the distro defaults (env_reset, secure_path, root) are kept
+    && printf '%s\n' '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' 'Defaults env_keep += "DEBIAN_FRONTEND"' > /etc/sudoers.d/runner \
+    && chmod 0440 /etc/sudoers.d/runner \
+    && visudo -c
 
 WORKDIR /home/runner
 
