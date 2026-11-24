@@ -11,6 +11,8 @@ updates:
   schedule:
     interval: weekly
 - directory: /.github/workflows
+  ignore:
+  - dependency-name: "@github/copilot" # Managed by gh aw compile. Version-locked to the gh-aw compiler (lock.yml installs it by pinned version + checksum); do not bump.
   package-ecosystem: npm
   schedule:
     interval: weekly
