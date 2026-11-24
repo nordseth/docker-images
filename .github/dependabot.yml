@@ -1,20 +1,16 @@
-version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      weekly-batch:
-        patterns:
-          - "*"
-
-  - package-ecosystem: "docker"
-    directories:
-      - "/**"
-    schedule:
-      interval: "weekly"
-    groups:
-      weekly-batch:
-        patterns:
-          - "*"
+- directory: /
+  ignore:
+  - dependency-name: "github/gh-aw-actions/*" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
+  package-ecosystem: github-actions
+  schedule:
+    interval: weekly
+- directory: ""
+  package-ecosystem: docker
+  schedule:
+    interval: weekly
+- directory: /.github/workflows
+  package-ecosystem: npm
+  schedule:
+    interval: weekly
+version: 2
