@@ -5,7 +5,8 @@ updates:
   package-ecosystem: github-actions
   schedule:
     interval: weekly
-- directory: ""
+- directories:
+  - "/**/*"
   package-ecosystem: docker
   schedule:
     interval: weekly
