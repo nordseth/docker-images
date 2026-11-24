@@ -1,17 +1,18 @@
 #!/bin/sh
 set -e
 
-if test -f "/tmp/.ssh/id_rsa"; then
-    cp -R /tmp/.ssh/id_rsa /root/.ssh
-    chmod 600 /root/.ssh/id_rsa
-fi
+# Copy any private/public key pairs (id_rsa, id_ed25519, id_ecdsa, ...) from /tmp/.ssh
+for key in /tmp/.ssh/id_*; do
+    test -f "$key" || continue
+    name=$(basename "$key")
+    cp "$key" "/root/.ssh/$name"
+    case "$name" in
+        *.pub) chmod 644 "/root/.ssh/$name" ;;
+        *)     chmod 600 "/root/.ssh/$name" ;;
+    esac
+done
 
-if test -f "/tmp/.ssh/id_rsa.pub"; then
-    cp -R /tmp/.ssh/id_rsa.pub /root/.ssh
-    chmod 644 /root/.ssh/id_rsa.pub
-fi
-
-echo "Host *\n    UserKnownHostsFile /tmp/.ssh/known_hosts" > /root/.ssh/config
+printf 'Host *\n    UserKnownHostsFile /tmp/.ssh/known_hosts\n' > /root/.ssh/config
 chmod 600 /root/.ssh/config
 
 exec "$@"

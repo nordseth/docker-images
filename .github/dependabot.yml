@@ -7,6 +7,9 @@ updates:
     interval: weekly
 - directories:
   - "/**/*"
+  ignore:
+  - dependency-name: "*" # Images are pinned to a major version on purpose (e.g. dotnet-10 vs dotnet-11); add new folders for new majors.
+    update-types: ["version-update:semver-major"]
   package-ecosystem: docker
   schedule:
     interval: weekly

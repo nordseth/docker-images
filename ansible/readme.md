@@ -1,7 +1,7 @@
 Ansible image with some tools. Primarly use is running on windows for managing kubernetes clusters.
 Includes kubectl, helm and some image utils.
 
-Has a entrypoint scripts that mounts id_rsa, id_rsa.pub and known_hosts from /tmp/.ssh to /root/.ssh.
+Has an entrypoint script that copies SSH keys (id_rsa, id_ed25519, ... and their .pub files) from /tmp/.ssh to /root/.ssh, and points ssh at /tmp/.ssh/known_hosts.
 
 Example for running:
 

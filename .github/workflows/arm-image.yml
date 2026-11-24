@@ -12,12 +12,16 @@ on:
 jobs:
   build-push:
     strategy:
+      # Don't let one failing image cancel (and skip pushing) the others.
+      fail-fast: false
       matrix:
         image:
           - folder: aspnetcore/10-rpicam
             push: nordseth/aspnetcore:10-rpicam
+            smoke: dotnet --list-runtimes && command -v rpicam-still && ffmpeg -version
           - folder: aspnetcore/11-rpicam
             push: nordseth/aspnetcore:11-rpicam
+            smoke: dotnet --list-runtimes && command -v rpicam-still && ffmpeg -version
     runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v7
@@ -25,6 +29,12 @@ jobs:
       run: |
         cd ${{ matrix.image.folder }} 
         docker build . --file Dockerfile -t ${{ matrix.image.push }} --label build.commit.id=${{ github.sha }}
+    - name: Smoke test
+      # Runs through the image's own entrypoint, and via /bin/sh so a broken shell or entrypoint fails here.
+      env:
+        IMAGE: ${{ matrix.image.push }}
+        SMOKE: ${{ matrix.image.smoke }}
+      run: docker run --rm "$IMAGE" /bin/sh -c "set -e; $SMOKE"
     - name: Login to Docker Hub
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: docker/login-action@v4
