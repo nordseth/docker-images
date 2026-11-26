@@ -3,7 +3,7 @@ Docker images for https://hub.docker.com/u/nordseth.
 ### tool versions
 
 ```
-KUBE_VERSION="1.37.2"
+KUBE_VERSION="1.37.3"
 HELM_VERSION="4.3.2"
 NIBBLER_VERSION="1.16.2"
 BUILDCTL_VERSION="0.35.1"
