@@ -1,7 +1,7 @@
 FROM alpine:3
 
 ENV LEGO_VERSION="5.7.0" \
-    KUBE_VERSION="1.37.2"
+    KUBE_VERSION="1.37.3"
 
 RUN cd /tmp \
     && wget -q https://github.com/go-acme/lego/releases/download/v${LEGO_VERSION}/lego_v${LEGO_VERSION}_linux_amd64.tar.gz \
