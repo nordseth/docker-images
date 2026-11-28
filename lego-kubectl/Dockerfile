@@ -1,6 +1,6 @@
 FROM alpine:3
 
-ENV LEGO_VERSION="5.7.0" \
+ENV LEGO_VERSION="5.8.1" \
     KUBE_VERSION="1.37.3"
 
 RUN cd /tmp \
